@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fun Cartoon Facts</title>
+    <style>
+        .cartoon-facts-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            font-family: Arial, sans-serif;
+            background-color: #f0f8ff;
+        }
+
+        .fact-card {
+            border: 2px solid #4169e1;
+            border-radius: 12px;
+            margin-bottom: 15px;
+            padding: 15px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            transition: transform 0.2s;
+            background-color: white;
+        }
+
+        .fact-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+            background-color: #f8f9fa;
+        }
+
+        .fact-title {
+            font-weight: bold;
+            color: #1e90ff;
+            margin-bottom: 8px;
+            font-size: 1.2em;
+        }
+
+        .fact-detail {
+            color: #444;
+            font-size: 0.9em;
+            line-height: 1.4;
+        }
+    </style>
+</head>
+<body>
+    <div class="cartoon-facts-container"></div>
+
+    <script>
+        class CartoonFactsDisplay {
+            constructor(data) {
+                this.facts = data.cartoonFacts;
+                this.container = document.querySelector('.cartoon-facts-container');
+            }
+
+            displayFacts() {
+                this.facts.forEach(fact => {
+                    const factCard = document.createElement('div');
+                    factCard.className = 'fact-card';
+                    
+                    factCard.innerHTML = `
+                        <div class="fact-title">${fact.fact}</div>
+                        <div class="fact-detail">${fact.detail}</div>
+                    `;
+                    
+                    this.container.appendChild(factCard);
+                });
+            }
+        }
+
+        // Cartoon facts data
+        const cartoonFactsData = {
+            "cartoonFacts": [
+                {
+                    "id": 1,
+                    "fact": "Mickey Mouse's Original Name",
+                    "detail": "Mickey Mouse was originally named Mortimer Mouse until Walt Disney's wife convinced him to change it"
+                },
+                {
+                    "id": 2,
+                    "fact": "SpongeBob's Origins",
+                    "detail": "SpongeBob SquarePants was inspired by marine biologist and animator Stephen Hillenburg's work as a marine science educator"
+                },
+                {
+                    "id": 3,
+                    "fact": "The Simpsons Record",
+                    "detail": "The Simpsons is the longest-running animated series in US television history, premiering in 1989"
+                },
+                {
+                    "id": 4,
+                    "fact": "Bugs Bunny's Catchphrase",
+                    "detail": "Bugs Bunny's famous 'What's up, Doc?' was inspired by a common phrase from creator Tex Avery's hometown in Texas"
+                },
+                {
+                    "id": 5,
+                    "fact": "Scooby-Doo's Name",
+                    "detail": "Scooby-Doo got his name from Frank Sinatra's scat singing at the end of 'Strangers in the Night'"
+                },
+                {
+                    "id": 6,
+                    "fact": "Tom and Jerry's Silent Treatment",
+                    "detail": "Tom and Jerry rarely speak because the creators believed actions speak louder than words in animation"
+                },
+                {
+                    "id": 7,
+                    "fact": "Popeye's Influence",
+                    "detail": "After Popeye started promoting spinach, its consumption in the US increased by 33%"
+                },
+                {
+                    "id": 8,
+                    "fact": "Donald Duck's Middle Name",
+                    "detail": "Donald Duck's middle name is Fauntleroy, revealed in the 1942 film 'Donald Gets Drafted'"
+                },
+                {
+                    "id": 9,
+                    "fact": "Pokemon's Creation",
+                    "detail": "Pokémon was inspired by creator Satoshi Tajiri's childhood hobby of insect collecting"
+                },
+                {
+                    "id": 10,
+                    "fact": "Toy Story's Achievement",
+                    "detail": "Toy Story (1995) was the first fully computer-animated feature film ever released"
+                }
+            ]
+        };
+
+        // Initialize the display
+        const cartoonFactsDisplay = new CartoonFactsDisplay(cartoonFactsData);
+        cartoonFactsDisplay.displayFacts();
+    </script>
+</body>
+</html>
